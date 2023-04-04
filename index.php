@@ -639,3 +639,25 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
 
 </html>
 
+<?php
+
+$html = ob_get_clean();
+
+require_once 'lib/dompdf/autoload.inc.php';
+
+use Dompdf\Dompdf;
+
+$dompdf = new Dompdf();
+
+//opciones para agregar imagenes;
+$options = $dompdf->getOptions();
+$options->set(array('isRemoteEnabled' => true));
+$dompdf->setOptions($options);
+$dompdf->loadHtml($html);
+
+$dompdf->setPaper('letter');
+$dompdf->render();
+
+$dompdf->stream('Informe_orden_servicio.pdf', array("Attachment" => false));
+
+?>
