@@ -250,10 +250,63 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
     </div>
 
     <div class="title_mantenimiento">
-        MANTENIMIENTO REALIZADO
+        CHEQUEOS REALIZADOS
     </div>
 
     <div class="body_services">
+
+            <?php
+            $band1 = false;
+            foreach ($checks_1 as $check) {
+                if ($check['estado'] == 'realizado') {
+                    $band1 = true;
+                }     
+            }
+
+            $band2 = false;
+            foreach ($checks_2 as $check) {
+                if ($check['estado'] == 'realizado') {
+                    $band2 = true;
+                }     
+            }
+
+            $band3 = false;
+            foreach ($checks_3 as $check) {
+                if ($check['estado'] == 'realizado') {
+                    $band3 = true;
+                }     
+            }
+
+            $band4 = false;
+            foreach ($checks_4 as $check) {
+                if ($check['estado'] == 'realizado') {
+                    $band4 = true;
+                }     
+            }
+
+            $band5 = false;
+            foreach ($checks_5 as $check) {
+                if ($check['estado'] == 'realizado') {
+                    $band5 = true;
+                }     
+            }
+
+            $band6 = false;
+            foreach ($checks_6 as $check) {
+                if ($check['estado'] == 'realizado') {
+                    $band6 = true;
+                }     
+            }
+
+            $band7 = false;
+            foreach ($checks_7 as $check) {
+                if ($check['estado'] == 'realizado') {
+                    $band7 = true;
+                }     
+            }
+
+            if ($band1) {
+            ?>
         
             <table id="table_motor">
                 <thead>
@@ -270,6 +323,7 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
 
                 <?php 
                 foreach($checks_1 as $check){
+                    if ($check['estado'] == 'realizado') {
                         ?>
                         <tr>
                             <td style="text-align: left;"><?php echo $check['descripcion'] ?></td>
@@ -287,13 +341,18 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
                             
                             ?>
                         </tr>
-                    <?php
+                        <?php
+                    }
                     
                 }
                 ?>                                    
                 </tbody>
             </table>
+            <?php
+            }
 
+            if ($band2) {
+            ?>
             <table id="table_transmision">
                 <thead>
                     <tr>
@@ -308,6 +367,7 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
                 <tbody>
                 <?php 
                 foreach($checks_2 as $check){
+                    if ($check['estado'] == 'realizado') {
                         ?>
                         <tr>
                             <td style="text-align: left;"><?php echo $check['descripcion'] ?></td>
@@ -326,11 +386,16 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
                             ?>
                         </tr>
                     <?php
-                    
+                    }
                 }
                 ?>
                 </tbody>
             </table>
+
+            <?php
+            }
+            if ($band3) {
+            ?>
 
             <table id="table_frenos">
                 <thead>
@@ -346,6 +411,7 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
                 <tbody>
                 <?php 
                 foreach($checks_3 as $check){
+                    if ($check['estado'] == 'realizado') {
                         ?>
                         <tr>
                             <td style="text-align: left;"><?php echo $check['descripcion'] ?></td>
@@ -364,11 +430,16 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
                             ?>
                         </tr>
                     <?php
-                    
+                    }
                 }
                 ?>
                 </tbody>
             </table>
+
+            <?php
+            }
+            if ($band4) {
+            ?>
 
             <table id="table_electrico">
                 <thead>
@@ -384,6 +455,7 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
                 <tbody>
                 <?php 
                 foreach($checks_4 as $check){
+                    if ($check['estado'] == 'realizado') {
                         ?>
                         <tr>
                             <td style="text-align: left;"><?php echo $check['descripcion'] ?></td>
@@ -402,11 +474,16 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
                             ?>
                         </tr>
                     <?php
-                    
+                    }
                 }
                 ?>
                 </tbody>
             </table>
+
+            <?php
+            }
+            if ($band5) {
+            ?>
 
             <table id="table_suspension">
                 <thead>
@@ -422,6 +499,7 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
                 <tbody>
                 <?php 
                 foreach($checks_5 as $check){
+                    if ($check['estado'] == 'realizado') {
                         ?>
                         <tr>
                             <td style="text-align: left;"><?php echo $check['descripcion'] ?></td>
@@ -440,11 +518,15 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
                             ?>
                         </tr>
                     <?php
-                    
+                    }
                 }
                 ?>
                 </tbody>
             </table>
+            <?php
+            }
+            if ($band6) {
+            ?>
 
             <table id="table_enfriamiento">
                 <thead>
@@ -458,8 +540,9 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
                     </tr>
                 </thead>
                 <tbody>
-                <?php 
+                <?php
                 foreach($checks_6 as $check){
+                    if ($check['estado'] == 'realizado') {
                         ?>
                         <tr>
                             <td style="text-align: left;"><?php echo $check['descripcion'] ?></td>
@@ -478,11 +561,15 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
                             ?>
                         </tr>
                     <?php
-                    
+                    }
                 }
                 ?>
                 </tbody>
             </table>
+            <?php
+            }
+            if ($band7) {
+            ?>
 
             <table id="table_equipos">
                 <thead>
@@ -498,6 +585,7 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
                 <tbody>
                 <?php 
                 foreach($checks_7 as $check){
+                    if ($check['estado'] == 'realizado') {
                         ?>
                         <tr>
                             <td style="text-align: left;"><?php echo $check['descripcion'] ?></td>
@@ -516,11 +604,14 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
                             ?>
                         </tr>
                     <?php
-                    
+                    }
                 }
                 ?>
                 </tbody>
-            </table>    
+            </table>
+            <?php
+            }
+            ?>    
     </div>
 
     <div class="body-evidencias">
@@ -548,25 +639,3 @@ $fotos = $request->getFotosOrdenServicio($id_ser_venta);
 
 </html>
 
-<?php
-
-$html = ob_get_clean();
-
-require_once 'lib/dompdf/autoload.inc.php';
-
-use Dompdf\Dompdf;
-
-$dompdf = new Dompdf();
-
-//opciones para agregar imagenes;
-$options = $dompdf->getOptions();
-$options->set(array('isRemoteEnabled' => true));
-$dompdf->setOptions($options);
-$dompdf->loadHtml($html);
-
-$dompdf->setPaper('letter');
-$dompdf->render();
-
-$dompdf->stream('Informe_orden_servicio.pdf', array("Attachment" => false));
-
-?>
